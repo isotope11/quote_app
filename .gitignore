@@ -16,6 +16,7 @@
 
 # Ignore local bundler stuff
 /.Gemfile
+/bin
 
 # Ignore database config
 /config/database.yml

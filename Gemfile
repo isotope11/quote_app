@@ -13,9 +13,11 @@ gem 'devise'
 # Decorator pattern for Rails models
 gem 'draper'
 
-# In case you don't have node.js
-gem 'execjs'
-gem 'therubyracer'
+group :development do
+  # In case you don't have node.js
+  gem 'execjs'
+  gem 'therubyracer'
+end
 
 # Use Heroku for the demo
 gem 'heroku'

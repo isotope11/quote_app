@@ -11,6 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120103212913) do
+
+  create_table "nodes", :force => true do |t|
+    t.string   "type"
+    t.string   "description"
+    t.decimal  "estimation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

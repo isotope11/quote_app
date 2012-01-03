@@ -1,0 +1,3 @@
+class Section < Node
+end
+

@@ -85,6 +85,7 @@ GEM
       formtastic
       rails (~> 3.1.0)
     fssm (0.2.7)
+    haml (3.1.4)
     heroku (2.17.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -194,6 +195,7 @@ DEPENDENCIES
   execjs
   factory_girl
   formtastic-bootstrap
+  haml
   heroku
   jquery-rails
   minitest

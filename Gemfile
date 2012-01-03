@@ -7,6 +7,9 @@ gem 'pg'
 # http://rubysource.com/too-good-to-be-true-twitter-bootstrap-meets-formtastic-and-tabulous/
 gem 'formtastic-bootstrap'
 
+# Use haml for html
+gem 'haml'
+
 # Use devise for authentication
 gem 'devise'
 

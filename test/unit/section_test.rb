@@ -5,10 +5,9 @@ describe Section do
     @section = Factory.build :section
   end
 
-  it "can be a subsection of another section" do
-    supersection = Factory.build :section
-    @section.section = supersection
-    @section.section.must_equal supersection
+  it "can have child sections" do
+    subsection = Factory :section, parent: @section
+    @section.children.must_include subsection
   end
 
   it "has a description" do

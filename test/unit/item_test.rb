@@ -2,7 +2,7 @@ require 'minitest_helper'
 
 class ItemTest < MiniTest::Rails::Model
   before do
-    @item = Item.new description: 'test description', estimation: 2.5
+    @item = Factory :item
   end
 
   it "belongs to a section" do

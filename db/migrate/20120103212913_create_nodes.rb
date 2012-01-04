@@ -4,6 +4,7 @@ class CreateNodes < ActiveRecord::Migration
       t.string :type
       t.string :description
       t.decimal :estimation
+      t.integer :section_id
 
       t.timestamps
     end

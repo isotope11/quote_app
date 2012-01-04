@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-class ItemTest < MiniTest::Rails::Model
+describe Item do
   before do
     @item = Factory :item
   end

@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-class SectionTest < MiniTest::Rails::Model
+describe Section do
   before do
     @section = Factory.build :section
   end

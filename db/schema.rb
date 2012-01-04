@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(:version => 20120103212913) do
     t.string   "type"
     t.string   "description"
     t.decimal  "estimation"
-    t.integer  "section_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

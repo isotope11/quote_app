@@ -1,5 +1,6 @@
 class Node < ActiveRecord::Base
-  validates_presence_of :description, :estimation
+  acts_as_nested_set
+  validates_presence_of :description
 
   def estimation_min
     estimation - 1

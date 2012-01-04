@@ -41,6 +41,8 @@ GEM
     addressable (2.2.6)
     ansi (1.4.1)
     arel (2.2.1)
+    awesome_nested_set (2.0.2)
+      activerecord (>= 3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     capybara (1.1.2)
@@ -184,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_set
   capybara
   capybara_minitest_spec
   coffee-rails (~> 3.1.1)

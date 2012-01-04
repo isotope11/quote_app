@@ -1,4 +1,4 @@
-require 'minitest_helper'
+require_relative '../test_helper'
 
 describe Section do
   before do

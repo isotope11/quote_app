@@ -1,4 +1,4 @@
-require 'minitest_helper'
+require_relative '../test_helper'
 
 describe Item do
   before do

@@ -7,6 +7,7 @@ class CreateNodes < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
+      t.integer :quote_id
       t.timestamps
     end
   end

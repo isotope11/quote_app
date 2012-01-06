@@ -17,9 +17,6 @@ gem 'devise'
 # and cantango for roles
 gem 'cantango'
 
-# Decorator pattern for Rails models
-gem 'draper'
-
 group :development do
   # In case you don't have node.js
   gem 'execjs'
@@ -49,11 +46,5 @@ group :test do
   gem 'capybara_minitest_spec'
   gem 'database_cleaner'
   gem 'delorean'
-
-  # Pretty printed test output
-  gem 'turn', '~> 0.8.3', :require => false
 end
 
-# Add your own local bundler stuff
-local_gemfile = File.expand_path '../.Gemfile', __FILE__
-instance_eval File.read local_gemfile if File.exists? local_gemfile

@@ -3,7 +3,7 @@ require_relative '../test_helper'
 describe "Quote integration" do
   before do
     @quote = Factory :quote
-    @section = Factory :section, quote: @quote
+    @section = Factory :section, parent: @quote
   end
 
   it "should show the quote" do

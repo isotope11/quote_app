@@ -6,9 +6,5 @@ class Section < Node
   def max_hours
     children.inject(0) { |sum, child| sum += child.max_hours }
   end
-
-  def section?
-    true
-  end
 end
 

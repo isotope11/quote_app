@@ -7,11 +7,11 @@ FactoryGirl.define do
     description 'test description'
     min_hours 2
     max_hours 4
-    section { Section.first || FactoryGirl.create(:section) }
+    parent { Section.first || FactoryGirl.create(:section) }
   end
 
   factory :quote do
-    title 'acme'
+    description 'acme'
   end
 end
 

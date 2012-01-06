@@ -5,10 +5,10 @@ describe Item do
     @item = Factory :item
   end
 
-  it "belongs to a section" do
+  it "must have a parent section" do
     section = Factory :section
-    @item.section = section
-    @item.section.must_equal section
+    @item.parent = section
+    @item.parent.must_equal section
   end
 
   it "has a description" do

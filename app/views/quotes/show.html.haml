@@ -5,8 +5,8 @@
       %th Min hours
       %th Max hours
   - @quote.descendants.each do |child|
-    %tr{ class: child.class.to_s.downcase }
-      %td= child.description
+    %tr{ class: child.type.downcase }
+      %td{ class: "level_#{child.level}" }= child.description
       %td= child.min_hours
       %td= child.max_hours
   %tfoot

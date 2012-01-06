@@ -43,6 +43,8 @@ GEM
     awesome_nested_set (2.0.2)
       activerecord (>= 3.0.0)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (1.4.3)
+      sass-rails (~> 3.1)
     builder (3.0.0)
     cancan (1.6.7)
     cantango (0.9.4.7)
@@ -72,6 +74,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    colored (1.2)
     database_cleaner (0.7.0)
     delorean (1.2.0)
       chronic
@@ -173,6 +176,9 @@ GEM
     sweetloader (0.1.6)
       activesupport (>= 3.0.1)
       i18n
+    tabulous (1.0.3)
+      colored (~> 1.2.0)
+      rails (~> 3.0)
     term-ansicolor (1.0.7)
     therubyracer (0.9.9)
       libv8 (~> 3.3.10)
@@ -195,6 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_nested_set
+  bootstrap-sass
   cantango
   capybara
   capybara_minitest_spec
@@ -214,5 +221,6 @@ DEPENDENCIES
   pg
   rails (= 3.1.3)
   sass-rails (~> 3.1.5)
+  tabulous
   therubyracer
   uglifier (>= 1.0.3)

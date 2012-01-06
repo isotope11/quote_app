@@ -7,7 +7,9 @@ gem 'awesome_nested_set'
 
 # Use bootstrap and formtastic all nicely:
 # http://rubysource.com/too-good-to-be-true-twitter-bootstrap-meets-formtastic-and-tabulous/
+gem 'bootstrap-sass'
 gem 'formtastic-bootstrap'
+gem 'tabulous'
 
 # Use haml for html
 gem 'haml'

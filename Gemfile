@@ -14,6 +14,8 @@ gem 'haml'
 
 # Use devise for authentication
 gem 'devise'
+# and cantango for roles
+gem 'cantango'
 
 # Decorator pattern for Rails models
 gem 'draper'

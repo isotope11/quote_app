@@ -1,2 +1,16 @@
-- @quote.sections.each do |section|
-  = section.description
+%table
+  %thead
+    %tr
+      %th Description
+      %th Min hours
+      %th Max hours
+  - @quote.sections.each do |section|
+    %tr.toplevel-section
+      %td= section.description
+      %td= section.min_hours
+      %td= section.max_hours
+    - section.children.each do |child|
+      %tr
+        %td= child.description
+        %td= child.min_hours
+        %td= child.max_hours

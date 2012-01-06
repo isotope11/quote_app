@@ -14,13 +14,14 @@
 ActiveRecord::Schema.define(:version => 20120106163619) do
 
   create_table "nodes", :force => true do |t|
+    t.integer  "quote_id"
     t.string   "type"
     t.string   "description"
-    t.decimal  "estimation"
+    t.integer  "min_hours"
+    t.integer  "max_hours"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.integer  "quote_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

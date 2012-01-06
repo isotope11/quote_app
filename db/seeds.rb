@@ -17,8 +17,27 @@ Section.find_or_create_by_description('Engineering', quote: Quote.first).tap do 
   Item.find_or_create_by_description 'Server setup, SSL procurement, etc.', parent: section, min_hours: 0, max_hours: 0
 end
 
-Section.find_or_create_by_description 'Design', quote: Quote.first
-Section.find_or_create_by_description 'Development', quote: Quote.first
-Section.find_or_create_by_description 'Testing', quote: Quote.first
-Section.find_or_create_by_description 'QA', quote: Quote.first
+Section.find_or_create_by_description('Design', quote: Quote.first).tap do |section|
+  Item.find_or_create_by_description 'UI/UX Design, Layout for main application, associated stylesheets / html mockups', parent: section, min_hours: 12, max_hours: 18
+end
+
+Section.find_or_create_by_description('Development', quote: Quote.first).tap do |section|
+  Section.find_or_create_by_description('Supporting Library Development', parent: section).tap do |subsection|
+    Item.find_or_create_by_description 'Importer libraries (import CSV exports of all data needed for backend for calculation)', parent: subsection, min_hours: 8, max_hours: 10
+    Item.find_or_create_by_description 'Calculator library', parent: subsection, min_hours: 26, max_hours: 45
+  end
+  Section.find_or_create_by_description('Data Models', parent: section).tap do |subsection|
+    Item.find_or_create_by_description 'User authentication, registration, roles system - implementing Devise + CanCan', parent: subsection, min_hours: 0, max_hours: 0
+    Item.find_or_create_by_description 'Data models to support various import files (these should be basic)', parent: subsection, min_hours: 4, max_hours: 6
+    Item.find_or_create_by_description 'Forecast data model (to store a given forecast)', parent: subsection, min_hours: 6, max_hours: 10
+  end
+end
+
+Section.find_or_create_by_description('Testing', quote: Quote.first).tap do |section|
+  Item.find_or_create_by_description 'Supporting libraries - unit tests', parent: section, min_hours: 6, max_hours: 12
+end
+
+Section.find_or_create_by_description('QA', quote: Quote.first).tap do |section|
+  Item.find_or_create_by_description 'Cross Browser testing/fixes', parent: section, min_hours: 12, max_hours: 16
+end
 

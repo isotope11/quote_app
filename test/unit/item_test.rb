@@ -15,12 +15,13 @@ describe Item do
     @item.description.must_equal 'test description'
   end
 
-  it "has an estimation" do
-    @item.estimation.must_equal 2.5
+  it "has min hours" do
+    @item.min_hours = 2
+    @item.min_hours.must_equal 2
   end
 
-  it "has a min and max calculated estimate" do
-    @item.estimation_min.must_equal 1.5
-    @item.estimation_max.must_equal 3.5
+  it "has max hours" do
+    @item.max_hours = 2
+    @item.max_hours.must_equal 2
   end
 end

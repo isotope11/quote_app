@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :section do
     description 'test description'
-    estimation 2.5
   end
 
   factory :item do
     description 'test description'
-    estimation 2.5
+    min_hours 2
+    max_hours 4
     section { Section.first || FactoryGirl.create(:section) }
   end
 

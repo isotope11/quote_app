@@ -14,12 +14,9 @@ describe Section do
     @section.description.must_equal 'test description'
   end
 
-  it "has an estimation" do
-    @section.estimation.must_equal 2.5
-  end
-
-  it "has a min and max calculated estimate" do
-    @section.estimation_min.must_equal 1.5
-    @section.estimation_max.must_equal 3.5
+  it "sums the min hours of its child elements" do
+    Factory(:item, parent: @section, min_hours: 2)
+    Factory(:item, parent: @section, min_hours: 3)
+    @section.min_hours.must_equal 5
   end
 end

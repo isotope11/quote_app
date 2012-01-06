@@ -1,11 +1,11 @@
 class Section < Node
   belongs_to :quote
   def min_hours
-    children.sum :min_hours
+    children.inject(0) { |sum, child| sum += child.min_hours }
   end
 
   def max_hours
-    children.sum :max_hours
+    children.inject(0) { |sum, child| sum += child.max_hours }
   end
 end
 

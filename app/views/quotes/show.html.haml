@@ -16,14 +16,14 @@
         %td= child.min_hours
         %td= child.max_hours
         %td= link_to 'edit', edit_section_path(child)
-        %td= button_to 'destroy', section_path(child), :method => :delete
+        %td= button_to 'destroy', section_path(child), method: :delete, class: 'btn'
     - else
       %tr.item
         %td{ class: "level_#{child.level}" }= child.description
         %td= child.min_hours
         %td= child.max_hours
         %td= link_to 'edit', edit_item_path(child)
-        %td= button_to 'destroy', item_path(child), :method => :delete
+        %td= button_to 'destroy', item_path(child), method: :delete, class: 'btn'
   %tfoot
     %tr
       %td= "Totals"

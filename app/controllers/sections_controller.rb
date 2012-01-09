@@ -20,6 +20,6 @@ class SectionsController < ApplicationController
   def create
     parent = Node.find params[:section][:parent_id]
     @section = Section.create params[:section].merge parent: parent
-    redirect_to quotes_path @section.root_node
+    redirect_to quote_path @section.root_node
   end
 end

@@ -1,4 +1,6 @@
-%h3= link_to @quote.description, edit_quote_path(@quote)
+%h3
+  = @quote.description
+  = link_to 'edit', edit_quote_path(@quote)
 %table
   %thead
     %tr

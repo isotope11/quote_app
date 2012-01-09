@@ -16,7 +16,14 @@
             %li= link_to "Quotes", quotes_path
             %li= link_to "New Quote", new_quote_path
     .container
-      %p.notice= notice
-      %p.alert= alert
+      - if notice
+        .alert-message.info
+          %p= notice
+      - if alert
+        .alert-message.warning
+          %p= alert
+      - if flash[:error]
+        .alert-message.error
+          %p= flash[:error]
       = yield
       %br.clear

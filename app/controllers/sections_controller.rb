@@ -8,7 +8,7 @@ class SectionsController < ApplicationController
     if @section.update_attributes params[:section]
       redirect_to quote_path @section.root_node
     else
-      flash.alert = 'There were some errors.'
+      flash.now.alert = 'There were some errors.'
       render :edit
     end
   end

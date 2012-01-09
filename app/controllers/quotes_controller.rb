@@ -27,7 +27,7 @@ class QuotesController < ApplicationController
     if @quote.update_attributes params[:quote]
       redirect_to @quote
     else
-      flash.notice = 'There were some errors.'
+      flash.now.alert = 'There were some errors.'
       render :edit
     end
   end

@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if @item.update_attributes params[:item]
       redirect_to quote_path @item.root_node
     else
-      flash.notice = 'There were some errors.'
+      flash.now.alert = 'There were some errors.'
       render :edit
     end
   end

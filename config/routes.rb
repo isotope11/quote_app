@@ -1,6 +1,8 @@
 QuoteApp::Application.routes.draw do
   devise_for :users
   resources :quotes
+  resources :sections
+  resources :items
   root :to => 'quotes#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

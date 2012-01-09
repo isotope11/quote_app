@@ -10,6 +10,7 @@
       %td{ class: "level_#{child.level}" }= child.description
       %td= child.min_hours
       %td= child.max_hours
+      %td= link_to 'edit', child.type == 'Section' ? edit_section_path(child) : edit_item_path(child)
   %tfoot
     %tr
       %td= "Totals"

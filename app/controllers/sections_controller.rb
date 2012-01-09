@@ -12,4 +12,14 @@ class SectionsController < ApplicationController
       render :edit
     end
   end
+
+  def new
+    @section = Section.new parent: Node.find(params[:parent])
+  end
+
+  def create
+    parent = Node.find params[:section][:parent_id]
+    @section = Section.create params[:section].merge parent: parent
+    redirect_to quotes_path @section.root_node
+  end
 end

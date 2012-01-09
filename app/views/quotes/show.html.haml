@@ -8,15 +8,18 @@
       %th Min hours
       %th Max hours
       %th
+      %th
   - @quote.descendants.each do |child|
     %tr{ class: child.type.downcase }
       %td{ class: "level_#{child.level}" }= child.description
       %td= child.min_hours
       %td= child.max_hours
       %td= link_to 'edit', child.type == 'Section' ? edit_section_path(child) : edit_item_path(child)
+      %td= button_to 'destroy', child.type == 'Section' ? section_path(child, method: :delete) : item_path(child, method: :delete)
   %tfoot
     %tr
       %td= "Totals"
       %td= @quote.min_hours
       %td= @quote.max_hours
-      %td=
+      %td
+      %td

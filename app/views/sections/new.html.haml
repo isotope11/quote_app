@@ -1,9 +1,8 @@
-%ul
-  %li= link_to 'New Child Section', new_section_path(parent: @section)
-  %li= link_to 'New Child Item', new_item_path(parent: @section)
 = semantic_form_for @section do |f|
   = f.semantic_errors
   = f.inputs do
+    = f.hidden_field :parent_id
     = f.input :description
   = f.buttons do
     = f.commit_button
+

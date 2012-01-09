@@ -22,4 +22,11 @@ class SectionsController < ApplicationController
     @section = Section.create params[:section].merge parent: parent
     redirect_to quote_path @section.root_node
   end
+
+  def destroy
+    @section = Section.find params[:id]
+    @quote = @section.root_node
+    @section.destroy
+    redirect_to quote_path @quote
+  end
 end

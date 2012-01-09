@@ -27,4 +27,11 @@ class ItemsController < ApplicationController
     @item = Item.create params[:item].merge(parent: parent)
     redirect_to quote_path @item.root_node
   end
+
+  def destroy
+    @item = Item.find params[:id]
+    @quote = @item.root_node
+    @item.destroy
+    redirect_to quote_path @quote
+  end
 end

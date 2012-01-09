@@ -1,0 +1,8 @@
+= semantic_form_for @item do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :description
+    = f.input :min_hours
+    = f.input :max_hours
+  = f.buttons do
+    = f.commit_button

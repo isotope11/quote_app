@@ -4,7 +4,10 @@ class QuotesController < ApplicationController
   end
 
   def show
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find params[:id]
+  rescue ActiveRecord::RecordNotFound => ex
+    flash.alert = 'Quote could not be found.'
+    redirect_to quotes_path
   end
 
   def new

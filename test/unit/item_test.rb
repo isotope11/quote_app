@@ -2,13 +2,18 @@ require_relative '../test_helper'
 
 describe Item do
   before do
-    @item = Factory :item
+    @item = FactoryGirl.build :item
   end
 
-  it "must have a parent section" do
-    section = Factory :section
-    @item.parent = section
-    @item.parent.must_equal section
+  it "can have a parent section" do
+    @section = FactoryGirl.build :section
+    @item.parent = @section
+    @item.parent.must_equal @section
+  end
+
+  it "fails validation if the parent isn't a section" do
+    @item.parent = FactoryGirl.build :item
+    @item.valid?.must_equal false
   end
 
   it "has a description" do

@@ -42,3 +42,5 @@ Quote.first.tap do |quote|
     Item.find_or_create_by_description 'Cross Browser testing/fixes', parent: section, min_hours: 12, max_hours: 16
   end
 end
+
+ItemTemplate.create description: 'Default Template', min_hours: 0, max_hours: 0

@@ -1,4 +1,15 @@
 class ItemsController < ApplicationController
+  def new
+    @parent = Node.find_by_id params[:parent]
+    @item_templates = ItemTemplate.all
+    if @item_template = ItemTemplate.find_by_id(params[:item_template])
+      description = @item_template.description
+      min_hours = @item_template.min_hours
+      max_hours = @item_template.max_hours
+    end
+    @item = Item.new parent: @parent, description: description, min_hours: min_hours, max_hours: max_hours, item_template: @item_template
+  end
+
   def edit
     @item = Item.find params[:id]
   end
@@ -10,15 +21,6 @@ class ItemsController < ApplicationController
     else
       flash.now.alert = 'There were some errors.'
       render :edit
-    end
-  end
-
-  def new
-    if params[:parent]
-      parent = Node.find params[:parent]
-      @item = Item.new parent: parent
-    else
-      @item = Item.new
     end
   end
 

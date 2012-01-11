@@ -1,9 +1,8 @@
-= semantic_form_for @item do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.hidden_field :parent_id
-    = f.input :description
-    = f.input :min_hours
-    = f.input :max_hours
-  = f.buttons do
-    = f.commit_button
+%h3 New Item
+- if @item_template
+  = render 'form'
+- else
+  %p Choose an item template
+  %ul
+    - @item_templates.each do |item_template|
+      %li= link_to item_template.description, new_item_path(parent: @parent, item_template: item_template)

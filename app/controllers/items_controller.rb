@@ -25,8 +25,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    parent = Node.find params[:item][:parent_id] if params[:item][:parent_id]
-    @item = Item.new params[:item].merge(parent: parent)
+    @parent = Node.find_by_id params[:item][:parent_id]
+    @item_template = ItemTemplate.find_by_id params[:item][:item_template_id]
+    @item = Item.new params[:item].merge(parent: @parent, item_template: @item_template)
     if @item.save
       redirect_to quote_path @item.root_node
     else

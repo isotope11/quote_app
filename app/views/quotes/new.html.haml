@@ -1,9 +1,2 @@
 %h3 New Quote
-
-= semantic_form_for(@quote) do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :description, :hint => "Take a guess"
-  = f.buttons do 
-    = f.commit_button
-
+= render 'form'

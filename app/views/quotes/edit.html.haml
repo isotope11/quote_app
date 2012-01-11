@@ -1,8 +1,2 @@
-%ul
-  %li= link_to 'New Section', new_section_path(parent: @quote)
-= semantic_form_for @quote do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :description
-  = f.buttons do
-    = f.commit_button
+%h3 Edit Quote
+= render 'form'

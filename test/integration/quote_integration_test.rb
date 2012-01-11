@@ -19,9 +19,8 @@ describe "Quote integration" do
   it "has a workflow for creating toplevel sections" do
     visit quote_path @quote
     within 'h3' do
-      click_link 'edit'
+      click_link '+s'
     end
-    click_link 'New Section'
     fill_in 'Description', with: 'Engineering'
     click_button 'Create Section'
     current_path.must_equal quote_path @quote

@@ -24,8 +24,13 @@ class ItemsController < ApplicationController
 
   def create
     parent = Node.find params[:item][:parent_id] if params[:item][:parent_id]
-    @item = Item.create params[:item].merge(parent: parent)
-    redirect_to quote_path @item.root_node
+    @item = Item.new params[:item].merge(parent: parent)
+    if @item.save
+      redirect_to quote_path @item.root_node
+    else
+      flash.alert = 'There were some errors.'
+      render :new
+    end
   end
 
   def destroy

@@ -4,6 +4,7 @@ describe "Quote integration" do
   before do
     @quote = FactoryGirl.create :quote
     @section = FactoryGirl.create :section, parent: @quote
+    @item_template = FactoryGirl.create :item_template
   end
 
   it "should show the quote" do
@@ -32,6 +33,7 @@ describe "Quote integration" do
     within '.section' do
       click_link '+i'
     end
+    click_link 'Data Model'
     fill_in 'Description', with: 'application modeling'
     fill_in 'Min hours', with: '4'
     fill_in 'Max hours', with: '8'

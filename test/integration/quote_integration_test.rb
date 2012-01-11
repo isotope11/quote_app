@@ -30,9 +30,8 @@ describe "Quote integration" do
   it "has a workflow for creating items" do
     visit quote_path @quote
     within '.section' do
-      click_link 'edit'
+      click_link '+i'
     end
-    click_link 'New Child Item'
     fill_in 'Description', with: 'application modeling'
     fill_in 'Min hours', with: '4'
     fill_in 'Max hours', with: '8'

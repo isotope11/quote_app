@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106163619) do
+ActiveRecord::Schema.define(:version => 20120111154941) do
+
+  create_table "item_templates", :force => true do |t|
+    t.string  "description"
+    t.integer "min_hours"
+    t.integer "max_hours"
+  end
 
   create_table "nodes", :force => true do |t|
     t.string   "type"

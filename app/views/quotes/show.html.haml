@@ -10,24 +10,25 @@
       %th Max hours
       %th
       %th
-  - @quote.descendants.each do |node|
-    - if node.type == 'Section'
-      %tr.section
-        %td{ class: "level_#{node.level}" }
-          = node.description
-          = link_to '+s', new_section_path(parent: node)
-          = link_to '+i', new_item_path(parent: node)
-        %td= node.min_hours
-        %td= node.max_hours
-        %td= link_to 'edit', edit_section_path(node)
-        %td= button_to 'destroy', section_path(node), method: :delete, class: 'btn'
-    - else
-      %tr.item
-        %td{ class: "level_#{node.level}" }= node.description
-        %td= node.min_hours
-        %td= node.max_hours
-        %td= link_to 'edit', edit_item_path(node)
-        %td= button_to 'destroy', item_path(node), method: :delete, class: 'btn'
+  %tbody
+    - @quote.descendants.each do |node|
+      - if node.type == 'Section'
+        %tr.section
+          %td{ class: "level_#{node.level}" }
+            = node.description
+            = link_to '+s', new_section_path(parent: node)
+            = link_to '+i', new_item_path(parent: node)
+          %td= node.min_hours
+          %td= node.max_hours
+          %td= link_to 'edit', edit_section_path(node)
+          %td= button_to 'destroy', section_path(node), method: :delete, class: 'btn'
+      - else
+        %tr.item
+          %td{ class: "level_#{node.level}" }= node.description
+          %td= node.min_hours
+          %td= node.max_hours
+          %td= link_to 'edit', edit_item_path(node)
+          %td= button_to 'destroy', item_path(node), method: :delete, class: 'btn'
   %tfoot
     %tr
       %td= "Totals"

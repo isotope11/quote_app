@@ -1,0 +1,20 @@
+%h3 Item Templates
+%p= link_to 'New Item Template', new_item_template_path
+
+%table.bordered-table
+  %thead
+    %tr
+      %th Description
+      %th Min hours
+      %th Max hours
+      %th
+      %th
+  %tbody
+    - @item_templates.each do |item_template|
+      %tr
+        %td= item_template.description
+        %td= item_template.min_hours
+        %td= item_template.max_hours
+        %td= link_to 'edit', edit_item_template_path(item_template)
+        %td= button_to 'destroy', item_template_path(item_template), method: :delete, class: 'btn'
+

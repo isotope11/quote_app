@@ -19,12 +19,6 @@ gem 'devise'
 # and cantango for roles
 gem 'cantango'
 
-group :development do
-  # In case you don't have node.js
-  gem 'execjs'
-  gem 'therubyracer'
-end
-
 # Use Heroku for the demo
 gem 'heroku'
 

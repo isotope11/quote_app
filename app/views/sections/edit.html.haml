@@ -1,6 +1,4 @@
-%ul
-  %li= link_to 'New Child Section', new_section_path(parent: @section)
-  %li= link_to 'New Child Item', new_item_path(parent: @section)
+%h3 Edit Section
 = semantic_form_for @section do |f|
   = f.semantic_errors
   = f.inputs do

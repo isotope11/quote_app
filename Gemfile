@@ -37,6 +37,7 @@ group :test do
   # We'll use minitest for this project
   gem 'minitest'
   gem 'minitest-rails'
+  gem 'minitest-reporters'
   gem 'factory_girl'
   gem 'capybara'
   gem 'capybara_minitest_spec'

@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: quote_app_development
+test:
+  adapter: postgresql
+  database: quote_app_test
+production:
+  adapter: postgresql
+  database: quote_app_production

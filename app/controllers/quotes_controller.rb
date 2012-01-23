@@ -18,6 +18,9 @@ class QuotesController < ApplicationController
     @quote = Quote.new(params[:quote])
     if @quote.save
       redirect_to @quote
+    else
+      flash.now.alert = 'There were some errors.'
+      render :new
     end
   end
 

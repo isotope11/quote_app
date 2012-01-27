@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['Acme Quote', 'Big Business Quote', 'Google Quote'].each do |description|
+['Adjustments Calculator', 'Transaction Processor', 'Flight Plan Recorder'].each do |description|
   Quote.find_or_create_by_description description
 end
 

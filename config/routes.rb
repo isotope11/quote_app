@@ -7,6 +7,8 @@ QuoteApp::Application.routes.draw do
   resources :items
   resources :item_templates
 
+  match "send_to_xrono" => "quotes#send_to_xrono"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

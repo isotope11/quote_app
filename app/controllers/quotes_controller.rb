@@ -37,4 +37,15 @@ class QuotesController < ApplicationController
       render :edit
     end
   end
+
+  def send_to_xrono
+    @quote = Quote.find params[:id]
+    if @quote.create_in_xrono
+      flash.alert = 'The quote has been imported into Xrono.'
+    else
+      flash.alert = 'There was an error trying to import the quote into Xrono.'
+    end
+    redirect_to :back
+  end
+
 end

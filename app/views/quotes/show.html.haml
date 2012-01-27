@@ -2,6 +2,7 @@
   = @quote.description
   = link_to 'edit', edit_quote_path(@quote)
   = link_to '+s', new_section_path(parent: @quote)
+  .pull-right.btn= link_to 'Send to Xrono', :action => 'send_to_xrono', :id => @quote.id
 %table#quotes-table.bordered-table
   %thead
     %tr
@@ -37,3 +38,4 @@
       %td
       %td
 %p Note: Estimate for budgetary purposes only. Isotope11 does not engage in fixed-bid work.
+

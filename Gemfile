@@ -25,6 +25,9 @@ gem 'faraday'
 # Use Heroku for the demo
 gem 'heroku'
 
+# json parser
+gem 'json'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

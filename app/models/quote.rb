@@ -7,10 +7,16 @@ class Quote < Node
     children.inject(0) { |sum, child| sum += child.max_hours }
   end
 
-  def create_in_xrono
+  def create_in_xrono(client_id)
     # send the information in the proper format for Xrono to create a project based on Quote
     send_to_url = "http://192.168.1.83:3000"
     conn = Faraday.new(:url => send_to_url)
-    response = conn.post("/api/v1/projects.json", {"client" => {"name" => self.business_name, "status" => "Inactive"}})
+    response = conn.post("/api/v1/projects.json", {"project" => {"name" => self.description, "client_id" => client_id}})
+    self.descendants.select{|p| p.type == "Item"}.each do |node|
+      # create tickets using "items" as tickets, and sections as their naming schema 
+      # create a ticket
+      ticket_name = node.ancestors.map(&:description).push(node.description).join(' > ')
+      resp = conn.post("/api/v1/projects.json", {"ticket" => {"name" => ticket_name, "description" => ticket_name, "estimated_hours" => node.average_hours}})
+    end
   end
 end

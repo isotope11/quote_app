@@ -5,4 +5,8 @@ class Node < ActiveRecord::Base
   def root_node
     ancestors.first || self
   end
+
+  def average_hours
+    (self.min_hours + self.max_hours) / 2
+  end
 end

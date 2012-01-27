@@ -19,6 +19,9 @@ gem 'devise'
 # and cantango for roles
 gem 'cantango'
 
+# API access gem
+gem 'faraday'
+
 # Use Heroku for the demo
 gem 'heroku'
 
@@ -34,6 +37,7 @@ end
 gem 'jquery-rails'
 
 group :test do
+  gem 'ruby-debug19'
   # We'll use minitest for this project
   gem 'minitest'
   gem 'minitest-rails'

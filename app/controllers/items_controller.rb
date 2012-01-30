@@ -16,6 +16,14 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find params[:id]
+
+    case params[:move]
+    when 'up'
+      @item.move_left if @item.left_sibling
+    when 'down'
+      @item.move_right if @item.right_sibling
+    end
+
     if @item.update_attributes params[:item]
       redirect_to quote_path @item.root_node
     else

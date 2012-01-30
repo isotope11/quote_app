@@ -5,6 +5,14 @@ class SectionsController < ApplicationController
 
   def update
     @section = Section.find params[:id]
+
+    case params[:move]
+    when 'up'
+      @section.move_left if @section.left_sibling
+    when 'down'
+      @section.move_right if @section.right_sibling
+    end
+
     if @section.update_attributes params[:section]
       redirect_to quote_path @section.root_node
     else

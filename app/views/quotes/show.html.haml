@@ -7,6 +7,7 @@
 %table#quotes-table.bordered-table
   %thead
     %tr
+      %th
       %th Description
       %th Min hours
       %th Max hours
@@ -16,6 +17,9 @@
     - @quote.descendants.each do |node|
       - if node.type == 'Section'
         %tr.section
+          %td
+            = button_to '&uarr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
+            = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
           %td{ class: "level_#{node.level}" }
             = node.description
             = link_to '+s', new_section_path(parent: node)
@@ -26,6 +30,9 @@
           %td= button_to 'destroy', section_path(node), method: :delete, class: 'btn'
       - else
         %tr.item
+          %td
+            = button_to '&uarr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
+            = button_to '&darr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
           %td{ class: "level_#{node.level}" }= node.description
           %td= node.min_hours
           %td= node.max_hours
@@ -33,6 +40,7 @@
           %td= button_to 'destroy', item_path(node), method: :delete, class: 'btn'
   %tfoot
     %tr
+      %td
       %td= "Totals"
       %td= @quote.min_hours
       %td= @quote.max_hours

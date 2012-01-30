@@ -7,6 +7,7 @@ class Node < ActiveRecord::Base
   end
 
   def average_hours
-    (self.min_hours + self.max_hours) / 2
+    avg_hrs = (self.min_hours + self.max_hours) / 2.0
+    avg_hrs.round.to_f
   end
 end

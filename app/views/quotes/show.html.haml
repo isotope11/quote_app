@@ -2,7 +2,8 @@
   = @quote.description
   = link_to 'edit', edit_quote_path(@quote)
   = link_to '+s', new_section_path(parent: @quote)
-  .pull-right.btn= link_to 'Send to Xrono', :action => 'client_select', :id => @quote.id
+  - if !@quote.processed?
+    .pull-right.btn= link_to 'Send to Xrono', :action => 'client_select', :id => @quote.id
 %table#quotes-table.bordered-table
   %thead
     %tr

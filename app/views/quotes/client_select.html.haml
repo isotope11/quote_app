@@ -2,6 +2,6 @@
 
 %p Please select the Client that the quote belongs to:
 = form_tag({:controller => "quotes", :action => 'send_to_xrono'}, :method => :post) do
-  = select_tag("client_id", options_for_select(@clients), :include_blank => true)
+  = select_tag("client_id", options_for_select(@clients), :prompt => "Select Client")
   = hidden_field_tag "id", @quote.id
   = submit_tag "Send to Xrono"

@@ -1,9 +1,12 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
+gem 'mysql2'
 gem 'pg'
 
 gem 'awesome_nested_set'
+
+gem 'capistrano'
 
 # Use bootstrap and formtastic all nicely:
 # http://rubysource.com/too-good-to-be-true-twitter-bootstrap-meets-formtastic-and-tabulous/

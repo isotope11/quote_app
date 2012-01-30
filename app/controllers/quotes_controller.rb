@@ -49,12 +49,14 @@ class QuotesController < ApplicationController
 
   def send_to_xrono
     @quote = Quote.find params[:id]
-    if @quote.create_in_xrono(params[:client_id])
+    if params[:client_id].present? && !@quote.processed?
+      @quote.create_in_xrono(params[:client_id])
+      @quote.update_attributes(:processed => true)
       flash.notice = 'The quote has been imported into Xrono.'
     else
-      flash.error = 'There was an error trying to import the quote into Xrono.'
+      flash.alert = 'You must first select a client in Xrono, in order to import this quote!'
     end
-    redirect_to :back
+    redirect_to root_path
   end
 
 end

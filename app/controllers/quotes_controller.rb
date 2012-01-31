@@ -4,10 +4,7 @@ class QuotesController < ApplicationController
   end
 
   def show
-    @quote = Quote.find params[:id]
-  rescue ActiveRecord::RecordNotFound => ex
-    flash.alert = 'Quote could not be found.'
-    redirect_to quotes_path
+    @quote = Quote.find_by_uuid params[:id]
   end
 
   def new
@@ -25,11 +22,11 @@ class QuotesController < ApplicationController
   end
 
   def edit
-    @quote = Quote.find params[:id]
+    @quote = Quote.find_by_uuid params[:id]
   end
 
   def update
-    @quote = Quote.find params[:id]
+    @quote = Quote.find_by_uuid params[:id]
     if @quote.update_attributes params[:quote]
       redirect_to @quote
     else
@@ -39,7 +36,7 @@ class QuotesController < ApplicationController
   end
 
   def client_select
-    @quote = Quote.find params[:id]
+    @quote = Quote.find_by_uuid params[:id]
     api_url = "http://192.168.1.83:3000"
     conn = Faraday.new(:url => api_url)
     @response = conn.get("/api/v1/clients.json")
@@ -48,7 +45,7 @@ class QuotesController < ApplicationController
   end
 
   def send_to_xrono
-    @quote = Quote.find params[:id]
+    @quote = Quote.find_by_uuid params[:id]
     if params[:client_id].present? && !@quote.processed?
       @quote.create_in_xrono(params[:client_id])
       @quote.update_attributes(:processed => true)

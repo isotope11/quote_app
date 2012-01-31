@@ -20,5 +20,9 @@ class Quote < Node
       resp = conn.post("/api/v1/tickets.json", {"ticket" => {"name" => ticket_name, "description" => ticket_name, "estimated_hours" => node.average_hours, "project_id" => self.xrono_id}})
     end
   end
+
+  def to_param
+    uuid
+  end
 end
 

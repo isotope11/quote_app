@@ -36,7 +36,7 @@ class QuotesController < ApplicationController
   end
 
   def client_select
-    @quote = Quote.find_by_uuid params[:id]
+    @quote = Quote.find(params[:id])
     api_url = "http://192.168.1.83:3000"
     conn = Faraday.new(:url => api_url)
     @response = conn.get("/api/v1/clients.json")
@@ -45,7 +45,7 @@ class QuotesController < ApplicationController
   end
 
   def send_to_xrono
-    @quote = Quote.find_by_uuid params[:id]
+    @quote = Quote.find(params[:id])
     if params[:client_id].present? && !@quote.processed?
       @quote.create_in_xrono(params[:client_id])
       @quote.update_attributes(:processed => true)

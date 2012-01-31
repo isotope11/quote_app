@@ -34,6 +34,11 @@ gem 'json'
 # Generates universally unique identifiers
 gem 'uuid'
 
+# Create PDFs using plain old HTML+CSS. Uses wkhtmltopdf on the back-end which
+# renders HTML using Webkit
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

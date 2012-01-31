@@ -1,0 +1,12 @@
+@import 'bootstrap';
+
+@media print {
+  .topbar {
+    display: none;
+  }
+
+  .admin_only {
+    display: none;
+  }
+}
+

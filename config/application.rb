@@ -47,5 +47,8 @@ module QuoteApp
 
     # Faster asset precompiles, required by Heroku
     config.assets.initialize_on_precompile = false
+
+    # Middleware
+    config.middleware.use PDFKit::Middleware, print_media_type: true
   end
 end

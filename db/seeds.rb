@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create! email: 'user@example.com', password: 'secretpass', password_confirmation: 'secretpass'
+
 ['Adjustments Calculator', 'Transaction Processor', 'Flight Plan Recorder'].each do |description|
   Quote.find_or_create_by_description description
 end

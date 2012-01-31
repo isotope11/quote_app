@@ -1,7 +1,7 @@
 %h3
   = @quote.description
   = link_to 'edit', edit_quote_path(@quote)
-  = link_to '+s', new_section_path(parent: @quote)
+  = link_to '+s', new_section_path(parent: @quote.id)
   - if !@quote.processed?
     .pull-right.btn= link_to 'Send to Xrono', :action => 'client_select', :id => @quote.id
 %table#quotes-table.bordered-table
@@ -22,8 +22,8 @@
             = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
           %td{ class: "level_#{node.level}" }
             = node.description
-            = link_to '+s', new_section_path(parent: node)
-            = link_to '+i', new_item_path(parent: node)
+            = link_to '+s', new_section_path(parent: node.id)
+            = link_to '+i', new_item_path(parent: node.id)
           %td= node.min_hours
           %td= node.max_hours
           %td= link_to 'edit', edit_section_path(node)

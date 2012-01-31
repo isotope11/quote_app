@@ -2,6 +2,8 @@ require_relative '../test_helper'
 
 describe "Quote integration" do
   before do
+    User.find_or_create_by_email "user@example.com", password: "secretpass", password_confirmation: "secretpass"
+    login_as "user@example.com", "secretpass"
     @quote = FactoryGirl.create :quote
     @section = FactoryGirl.create :section, parent: @quote
     @item_template = FactoryGirl.create :item_template

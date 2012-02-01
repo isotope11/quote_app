@@ -1,4 +1,12 @@
+require 'factory_girl'
+
 FactoryGirl.define do
+  factory :user do
+    email 'user@example.com'
+    password 'password'
+    password_confirmation 'password'
+  end
+
   factory :section do
     description 'test description'
   end

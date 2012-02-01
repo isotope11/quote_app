@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+  helper_method :quotes_collection
+
   def index
     @quotes = Quote.all
   end
@@ -9,10 +11,21 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
+    @clone = params[:clone]
   end
 
   def create
-    @quote = Quote.new(params[:quote])
+    attributes = params[:quote]
+    uuid = attributes.delete(:clone)
+    original = Quote.find_by_uuid(uuid)
+
+    if original
+      @quote = original.dup_branch
+      @quote.attributes = @quote.attributes.merge(attributes)
+    else
+      @quote = Quote.new(attributes)
+    end
+
     if @quote.save
       redirect_to @quote
     else
@@ -56,4 +69,7 @@ class QuotesController < ApplicationController
     redirect_to root_path
   end
 
+  def quotes_collection
+    Quote.all.map { |quote| [ quote.description, quote.uuid ] }
+  end
 end

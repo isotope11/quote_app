@@ -6,10 +6,6 @@ class Node < ActiveRecord::Base
 
   attr_accessible :description, :parent_id, :min_hours, :max_hours, :item_template_id, :processed, :xrono_id
 
-  def root_node
-    ancestors.first || self
-  end
-
   def average_hours
     avg_hrs = (self.min_hours + self.max_hours) / 2.0
     avg_hrs.round.to_f

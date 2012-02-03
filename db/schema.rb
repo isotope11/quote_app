@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131163741) do
+ActiveRecord::Schema.define(:version => 20120203142856) do
 
   create_table "item_templates", :force => true do |t|
     t.string  "description"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120131163741) do
     t.boolean  "processed"
     t.integer  "xrono_id"
     t.string   "uuid"
+    t.decimal  "billable_rate"
   end
 
   add_index "nodes", ["uuid"], :name => "index_nodes_on_uuid", :unique => true

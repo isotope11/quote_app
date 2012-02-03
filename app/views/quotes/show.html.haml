@@ -42,9 +42,16 @@
   %tfoot
     %tr
       %td.admin_only
-      %td= "Totals"
+      %td= "Hour Totals"
       %td= @quote.min_hours
       %td= @quote.max_hours
+      %td.admin_only
+      %td.admin_only
+    %tr
+      %td.admin_only
+      %td= "Billing Totals"
+      %td= number_to_currency((@quote.billable_rate * @quote.min_hours), :unit => "$")
+      %td= number_to_currency((@quote.billable_rate * @quote.max_hours), :unit => "$")
       %td.admin_only
       %td.admin_only
 %p Note: Estimate for budgetary purposes only. Isotope11 does not engage in fixed-bid work.

@@ -1,8 +1,8 @@
 %h3 New Item
-- if @item_template
+- if @item.item_template
   = render 'form'
 - else
   %p Choose an item template
   %ul
     - @item_templates.each do |item_template|
-      %li= link_to item_template.description, new_item_path(parent: @parent, item_template: item_template)
+      %li= link_to item_template.description, new_item_path(parent: @item.parent, item_template: item_template)

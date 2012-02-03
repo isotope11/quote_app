@@ -1,13 +1,16 @@
 class ItemsController < ApplicationController
   def new
-    @parent = Node.find_by_id params[:parent]
-    @item_templates = ItemTemplate.all
-    if @item_template = ItemTemplate.find_by_id(params[:item_template])
-      description = @item_template.description
-      min_hours = @item_template.min_hours
-      max_hours = @item_template.max_hours
+    @item = Item.new
+    @item.parent = Node.find_by_id(params[:parent])
+    @item.item_template = ItemTemplate.find_by_id(params[:item_template])
+
+    if @item.item_template
+      @item.description = @item.item_template.description
+      @item.min_hours = @item.item_template.min_hours
+      @item.max_hours = @item.item_template.max_hours
+    else
+      @item_templates = ItemTemplate.all
     end
-    @item = Item.new parent: @parent, description: description, min_hours: min_hours, max_hours: max_hours, item_template: @item_template
   end
 
   def edit
@@ -25,7 +28,7 @@ class ItemsController < ApplicationController
     end
 
     if @item.update_attributes params[:item]
-      redirect_to quote_path @item.root_node
+      redirect_to quote_path @item.root
     else
       flash.now.alert = 'There were some errors.'
       render :edit
@@ -33,11 +36,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @parent = Node.find_by_id params[:item][:parent_id]
-    @item_template = ItemTemplate.find_by_id params[:item][:item_template_id]
-    @item = Item.new params[:item].merge(parent: @parent, item_template: @item_template)
+    @item = Item.new(params[:item])
+    @item.parent = Node.find_by_id(params[:item][:parent_id])
+    @item.item_template = ItemTemplate.find_by_id(params[:item][:item_template_id])
+
     if @item.save
-      redirect_to quote_path @item.root_node
+      redirect_to quote_path @item.root
     else
       flash.alert = 'There were some errors.'
       render :new
@@ -46,7 +50,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find params[:id]
-    @quote = @item.root_node
+    @quote = @item.root
     @item.destroy
     redirect_to quote_path @quote
   end

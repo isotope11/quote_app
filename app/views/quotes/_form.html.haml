@@ -3,6 +3,7 @@
   = f.inputs do
     = f.input :description
     = f.input :billable_rate
+    = f.input :clone, as: :select, collection: quotes_collection, selected: @clone
   = f.buttons do
     = f.commit_button
 

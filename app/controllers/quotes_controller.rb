@@ -37,17 +37,14 @@ class QuotesController < ApplicationController
 
   def client_select
     @quote = Quote.find(params[:id])
-    api_url = "http://192.168.1.83:3000"
-    conn = Faraday.new(:url => api_url)
-    @response = conn.get("/api/v1/clients.json")
-    @clients = ActiveSupport::JSON.decode(@response.body)
-    @clients = @clients.map{|client| [client["name"], client["id"]]}
+    @response = XronoImport.new.get_clients
+    @clients = @response.map{|client| [client["name"], client["id"]]}
   end
 
   def send_to_xrono
     @quote = Quote.find(params[:id])
     if params[:client_id].present? && !@quote.processed?
-      @quote.create_in_xrono(params[:client_id])
+      XronoImport.new.send_quote(@quote, params[:client_id])
       @quote.update_attributes(:processed => true)
       flash.notice = 'The quote has been imported into Xrono.'
     else

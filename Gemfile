@@ -25,9 +25,6 @@ gem 'cantango'
 # API access gem
 gem 'faraday'
 
-# Use Heroku for the demo
-gem 'heroku'
-
 # json parser
 gem 'json'
 

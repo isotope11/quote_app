@@ -19,7 +19,7 @@
     - @quote.descendants.each do |node|
       - if node.type == 'Section'
         %tr.section
-          %td.admin_only
+          %td.admin_only.arrows
             = button_to '&uarr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
             = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
           %td{ class: "level_#{node.level}" }
@@ -32,7 +32,7 @@
           %td.admin_only= button_to 'destroy', section_path(node), method: :delete, class: 'btn'
       - else
         %tr.item
-          %td.admin_only
+          %td.admin_only.arrows
             = button_to '&uarr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
             = button_to '&darr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
           %td{ class: "level_#{node.level}" }= node.description

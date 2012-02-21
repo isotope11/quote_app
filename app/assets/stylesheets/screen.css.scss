@@ -22,3 +22,25 @@ body{
 .level_3 {
   text-indent: 50px;
 }
+
+.arrows{
+  width: 50px;
+  form{
+    display: inline-block;
+    margin: 0;
+    div{
+      display: inline-block;
+    }
+    .btn{
+      padding: 5px;
+    }
+  }
+}
+
+#quotes-table{
+  td{
+    form{
+      margin: 0;
+    }
+  }
+}

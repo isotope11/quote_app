@@ -30,3 +30,12 @@ quickly.
 
 [This project is on github.](http://github.com/isotope11/isotope_quotes).  We welcome forks and pull requests.  We would love
 to hear from you if you have suggestions as well - just use github issues.
+
+## Development
+To get started developing, do this to set up your local environment:
+
+    bundle exec rake db:create db:migrate db:seed
+
+Run the tests:
+
+    bundle exec rake test

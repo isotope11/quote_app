@@ -42,8 +42,8 @@ namespace :deploy do
 
   desc "Symlink shared resources on each release"
   task :symlink_shared, :roles => :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 
-before 'deploy:assets:precompile', 'deploy:symlink_shared'
+after 'deploy:finalize_update', 'deploy:symlink_shared'

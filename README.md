@@ -1,5 +1,4 @@
-# Isotope11 Quote App
-
+## Isotope11 Quote App
 TL;DR - This is an application for bidding software projects.
 
 We at Isotope11 built a project to use when creating estimates for our
@@ -15,7 +14,7 @@ give ugly quotes to customers, or we would spend insane amounts of time making
 them look good.  This tool allows us to easily generate good-looking estimates,
 quickly.
 
-## Features
+### Features
 - Estimate time required to build a software project with line items supporting
   min and max estimates.
 - Export your quotes to PDF.
@@ -31,7 +30,7 @@ quickly.
 [This project is on github.](http://github.com/isotope11/isotope_quotes).  We welcome forks and pull requests.  We would love
 to hear from you if you have suggestions as well - just use github issues.
 
-## Development
+### Development
 To get started developing, do this to set up your local environment:
 
     bundle exec rake db:create db:migrate db:seed

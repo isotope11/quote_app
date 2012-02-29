@@ -7,10 +7,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .topbar
-      .topbar-inner
+    .navbar.navbar-fixed-top
+      .navbar-inner
         .container
-          %a.brand{:href => "#"} Isotope11 Quote Application
+          %a.brand{:href => "/"} Isotope11 Quote Application
           = yield :title
           %ul.nav
             %li= link_to "Home", root_path

@@ -1,3 +1,5 @@
-- @quotes.each do |quote|
-  %ul
-    %li= link_to quote.description, quote_path(quote)
+%h2 Current Quotes
+%table.table.table-striped.table-bordered
+  - @quotes.each do |quote|
+    %tr
+      %td= link_to quote.description, quote_path(quote)

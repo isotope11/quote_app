@@ -1,7 +1,7 @@
-%h3 Item Templates
-%p= link_to 'New Item Template', new_item_template_path
+%h2 Item Templates
+%p= link_to 'New Item Template', new_item_template_path, class: 'btn'
 
-%table.bordered-table
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %th Description
@@ -15,6 +15,6 @@
         %td= item_template.description
         %td= item_template.min_hours
         %td= item_template.max_hours
-        %td= link_to 'edit', edit_item_template_path(item_template)
-        %td= button_to 'destroy', item_template_path(item_template), method: :delete, class: 'btn'
+        %td= link_to 'edit', edit_item_template_path(item_template), class: 'btn'
+        %td= button_to 'remove', item_template_path(item_template), method: :delete, class: 'btn'
 

@@ -1,15 +1,17 @@
-%h3
-  = @quote.description
-  = link_to 'edit', edit_quote_path(@quote), class: 'admin_only'
-  = link_to '+s', new_section_path(parent: @quote.id), class: 'admin_only'
+.top_nav
   - if !@quote.processed?
     .pull-right.btn.admin_only= link_to 'Send to Xrono', :action => 'client_select', :id => @quote.id
   .pull-right.btn.admin_only= link_to 'PDF', quote_path(@quote, format: 'pdf')
   .pull-right.btn.admin_only= link_to 'Clone', new_quote_path(clone: @quote.uuid)
-%table#quotes-table.bordered-table
+  .clear
+%h2
+  = @quote.description
+  = link_to 'edit', edit_quote_path(@quote), class: 'admin_only btn'
+  = link_to 'Add Section', new_section_path(parent: @quote.id), class: 'admin_only btn'
+%table#quotes-table.table.table-bordered
   %thead
     %tr
-      %th.admin_only
+      %th.admin_only Sort
       %th Description
       %th Min hours
       %th Max hours
@@ -18,7 +20,7 @@
   %tbody
     - @quote.descendants.each do |node|
       - if node.type == 'Section'
-        %tr.section
+        %tr.section{ class: "level_#{node.level}" }
           %td.admin_only.arrows
             = button_to '&uarr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
             = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
@@ -28,8 +30,8 @@
             = link_to '+i', new_item_path(parent: node.id), class: 'admin_only'
           %td= node.min_hours
           %td= node.max_hours
-          %td.admin_only= link_to 'edit', edit_section_path(node)
-          %td.admin_only= button_to 'destroy', section_path(node), method: :delete, class: 'btn'
+          %td.admin_only= link_to 'edit', edit_section_path(node), class: 'btn'
+          %td.admin_only= button_to 'remove', section_path(node), method: :delete, class: 'btn'
       - else
         %tr.item
           %td.admin_only.arrows
@@ -38,8 +40,10 @@
           %td{ class: "level_#{node.level}" }= node.description
           %td= node.min_hours
           %td= node.max_hours
-          %td.admin_only= link_to 'edit', edit_item_path(node)
-          %td.admin_only= button_to 'destroy', item_path(node), method: :delete, class: 'btn'
+          %td.admin_only= link_to 'edit', edit_item_path(node), class: 'btn'
+          %td.admin_only          
+            = button_to 'remove', item_path(node), method: :delete, class: 'btn'
+            
   %tfoot
     %tr
       %td.admin_only

@@ -1,30 +1,53 @@
 @import 'bootstrap';
+@import 'compass/css3';
 
 body{
   padding-top: 60px;
 }
-
-#quotes-table .section {
-  background: #E0E0E0;
+h2 {
+  margin-bottom: 15px;
 }
-
-.item {
-}
-
-.level_1 {
-  font-weight: bold;
-}
-
-.level_2 {
-  text-indent: 25px;
-}
-
-.level_3 {
-  text-indent: 50px;
+#quotes-table {
+  tfoot {
+    tr {
+      td {
+        font-weight:bold;
+        border-top:1px solid #444;
+        
+      }
+    }
+  }
+  td {
+    padding-top: 13px;
+  }
+  td.arrows {
+    padding-top: 10px;
+  }
+  .level_1.section {
+    background: #b3cddc;
+    .level_1 {
+      font-size: 1.2em;
+    }
+  }
+  .item {
+    .level_2 {
+      padding-left: 25px;
+    }
+    .level_3 {
+      padding-left: 25px;
+    }
+  }
+  .level_2.section {
+    background: #deedf8;
+    font-weight:bold;
+    .level_2 {
+      padding-left: 25px;
+    }
+  }
 }
 
 .arrows{
-  width: 50px;
+  width: 42px;
   form{
     display: inline-block;
     margin: 0;
@@ -36,11 +59,47 @@ body{
     }
   }
 }
-
+.top_nav {
+  width: 100%;
+  border-bottom:1px solid #eee;
+  margin-bottom:10px;
+  padding-bottom:5px;
+  .btn {
+    margin-left: 5px;
+  }
+}
+.clear {
+  clear:both;
+}
 #quotes-table{
+  margin: 10px 0;
   td{
     form{
       margin: 0;
+    }
+  }
+}
+ul.nav {
+  li {
+    a {
+      &:hover {
+        background:#555;
+      }
+    }
+  }
+}
+#user_new {
+  .submit {
+    margin: 5px 0 0 139px;
+  }
+  div {
+    margin: 0 0 10px 0;
+    label {
+      display:inline-block;
+      margin-right: 10px;
+    }
+    input {
+      display:inline-block;
     }
   }
 }

@@ -7,6 +7,13 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find_by_uuid params[:id]
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "quote.pdf", :print_media_type => true
+      end
+    end
   end
 
   def new

@@ -1,0 +1,33 @@
+%h2
+  = @quote.description
+%table#quotes-table.table.table-bordered
+  %thead
+    %tr
+      %th Description
+      %th Min hours
+      %th Max hours
+  %tbody
+    - @quote.descendants.each do |node|
+      - if node.type == 'Section'
+        %tr.section{ class: "level_#{node.level}" }
+          %td{ class: "level_#{node.level}" }
+            = node.description
+          %td= node.min_hours
+          %td= node.max_hours
+      - else
+        %tr.item
+          %td{ class: "level_#{node.level}" }= node.description
+          %td= node.min_hours
+          %td= node.max_hours
+  %tfoot
+    %tr
+      %td= "Hour Totals"
+      %td= @quote.min_hours
+      %td= @quote.max_hours
+    - if @quote.billable_rate.present?
+      %tr
+        %td= "Billing Totals"
+        %td= number_to_currency((@quote.billable_rate * @quote.min_hours), :unit => "$")
+        %td= number_to_currency((@quote.billable_rate * @quote.max_hours), :unit => "$")
+%p Note: Estimate for budgetary purposes only. Isotope11 does not engage in fixed-bid work.
+

@@ -33,6 +33,8 @@ class QuotesController < ApplicationController
       @quote = Quote.new(attributes)
     end
 
+    @quote.processed = false
+
     if @quote.save
       redirect_to @quote
     else

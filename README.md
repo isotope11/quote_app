@@ -27,7 +27,7 @@ quickly.
 - Sections and subsections sum up their childrens' min/max hours.
 - Export a quote to [xrono](http://github.com/isotope11/xrono), and create the project and all subtickets via the xrono API.
 
-[This project is on github.](http://github.com/isotope11/isotope_quotes).  We welcome forks and pull requests.  We would love
+[This project is on github.](http://github.com/isotope11/quote_app).  We welcome forks and pull requests.  We would love
 to hear from you if you have suggestions as well - just use github issues.
 
 ### Development

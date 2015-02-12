@@ -12,8 +12,8 @@ class Quote < Node
   end
 
   def variance
-    ((min_hours - max_hours).abs / 
-      average_hours).round(2)
+    return 0 if min_hours.zero?
+    ((max_hours - min_hours).to_f / min_hours).round(2)
   end
 end
 

@@ -6,7 +6,7 @@ gem 'pg'
 
 gem 'awesome_nested_set'
 
-gem 'capistrano'
+gem 'capistrano', '2.9.0'
 
 # Use bootstrap and formtastic all nicely:
 # http://rubysource.com/too-good-to-be-true-twitter-bootstrap-meets-formtastic-and-tabulous/

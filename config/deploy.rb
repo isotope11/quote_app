@@ -21,7 +21,7 @@ set :branch, "master"
 set :git_enable_submodules, 1
 
 # runtime dependencies
-depend :remote, :gem, "bundler", "1.0.21"
+depend :remote, :gem, "bundler", "1.7.6"
 
 # tasks
 namespace :deploy do

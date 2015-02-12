@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.10'
+gem 'rails', '4.1.9'
 gem 'mysql2'
 gem 'pg'
 
@@ -10,10 +10,11 @@ gem 'capistrano'
 
 # Use bootstrap and formtastic all nicely:
 # http://rubysource.com/too-good-to-be-true-twitter-bootstrap-meets-formtastic-and-tabulous/
-gem 'sass-rails', '~> 3.1'
-gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'formtastic-bootstrap'
 gem 'tabulous'
+gem 'compass-rails'
 
 # Use haml for html
 gem 'haml'
@@ -39,25 +40,22 @@ gem 'finalist-wkhtmltopdf'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  #gem 'sass-rails',   '~> 3.1.5'
-  gem 'compass', :git => 'http://github.com/chriseppstein/compass.git'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+  # gem 'compass', :git => 'http://github.com/chriseppstein/compass.git'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 
 group :test do
-  gem 'ruby-debug19'
-  # We'll use minitest for this project
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-reporters'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'capybara_minitest_spec'
   gem 'database_cleaner'
   gem 'delorean'
 end
 
+gem 'protected_attributes' # https://github.com/rails/protected_attributes
+gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'

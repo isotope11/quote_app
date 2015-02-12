@@ -1,7 +1,7 @@
 .top_nav
   - if !@quote.processed?
     .pull-right.btn.admin_only= link_to 'Send to Xrono', :action => 'client_select', :id => @quote.id
-  .pull-right.btn.admin_only= link_to 'PDF', quote_path(@quote, format: 'pdf')
+  .pull-right.btn.admin_only= link_to 'PDF', quote_path(@quote, format: 'pdf'), class: 'pdf_link', data: {variance: @quote.variance}
   .pull-right.btn.admin_only= link_to 'Clone', new_quote_path(clone: @quote.uuid)
   .clear
 %h2

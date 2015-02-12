@@ -2,11 +2,11 @@ require_relative '../test_helper'
 
 describe Section do
   before do
-    @section = Factory.build :section
+    @section = FactoryGirl.create :section
   end
 
   it "can have child sections" do
-    subsection = Factory :section, parent: @section
+    subsection = FactoryGirl.create :section, parent: @section
     @section.children.must_include subsection
   end
 
@@ -15,8 +15,8 @@ describe Section do
   end
 
   it "sums the min hours of its child elements" do
-    Factory(:item, parent: @section, min_hours: 2)
-    Factory(:item, parent: @section, min_hours: 3)
+    FactoryGirl.create(:item, parent: @section, min_hours: 2)
+    FactoryGirl.create(:item, parent: @section, min_hours: 3)
     @section.min_hours.must_equal 5
   end
 end

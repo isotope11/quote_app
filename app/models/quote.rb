@@ -10,5 +10,10 @@ class Quote < Node
   def to_param
     uuid
   end
+
+  def variance
+    return 0 if min_hours.zero?
+    ((max_hours - min_hours).to_f / min_hours).round(2)
+  end
 end
 

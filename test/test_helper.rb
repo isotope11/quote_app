@@ -1,13 +1,14 @@
 ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
+require 'rails/generators'
 require 'minitest/autorun'
 require 'minitest/rails'
 require 'minitest/reporters'
 require 'capybara/rails'
 require_relative 'support/factories'
 
-MiniTest::Unit.runner = MiniTest::SuiteRunner.new
-MiniTest::Unit.runner.reporters << MiniTest::Reporters::SpecReporter.new
+# MiniTest::Unit.runner = MiniTest::SuiteRunner.new
+# MiniTest::Unit.runner.reporters << MiniTest::Reporters::SpecReporter.new
 
 # If description name ends with 'integration', use this RequestSpec class.
 # It has all the integration test goodies.

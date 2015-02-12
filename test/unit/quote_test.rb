@@ -2,7 +2,7 @@ require_relative '../test_helper'
 
 describe Quote do
   before do
-    @quote = Factory.build :quote
+    @quote = FactoryGirl.build :quote
   end
 
   it "has a description" do

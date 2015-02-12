@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.10'
+gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'pg'
 
@@ -42,19 +42,17 @@ gem 'finalist-wkhtmltopdf'
 group :assets do
   #gem 'sass-rails',   '~> 3.1.5'
   gem 'compass', :git => 'http://github.com/chriseppstein/compass.git'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
 group :test do
-  gem 'ruby-debug19'
-  # We'll use minitest for this project
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-reporters'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'capybara_minitest_spec'
   gem 'database_cleaner'

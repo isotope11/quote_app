@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'factory_girl_rails'
 require_relative '../test/support/factories'
 
 FactoryGirl.create(:user, email: 'user@example.com', password: 'secretpass', password_confirmation: 'secretpass')

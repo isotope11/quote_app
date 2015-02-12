@@ -10,5 +10,10 @@ class Quote < Node
   def to_param
     uuid
   end
+
+  def variance
+    ((min_hours - max_hours).abs / 
+      average_hours).round(2)
+  end
 end
 

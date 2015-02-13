@@ -21,7 +21,7 @@ set :branch, "master"
 set :git_enable_submodules, 1
 
 # runtime dependencies
-depend :remote, :gem, "bundler", "1.7.6"
+depend :remote, :gem, "bundler", "1.6.2"
 
 # tasks
 namespace :deploy do
@@ -46,4 +46,9 @@ namespace :deploy do
   end
 end
 
+task :which_ruby, :roles => :app do
+  run "ruby --version"
+end
+
 after 'deploy:finalize_update', 'deploy:symlink_shared'
+before 'bundle:install', 'which_ruby'

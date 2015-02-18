@@ -1,10 +1,6 @@
 # Bundler bootstrap
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'bundler/capistrano'
-# RVM integration
-require "rvm/capistrano"
-# set :rvm_ruby_string, '2.1.2'
-# set :rvm_type, :user
+
 # main details
 set :application, "104.239.144.69"
 role :web, "104.239.144.69"

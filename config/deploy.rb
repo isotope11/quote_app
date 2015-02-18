@@ -3,8 +3,8 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'bundler/capistrano'
 # RVM integration
 require "rvm/capistrano"
-set :rvm_ruby_string, '2.1.2'
-set :rvm_type, :user
+# set :rvm_ruby_string, '2.1.2'
+# set :rvm_type, :user
 # main details
 set :application, "104.239.144.69"
 role :web, "104.239.144.69"
@@ -23,9 +23,6 @@ set :scm, :git
 set :repository, "git@github.com:isotope11/quote_app.git"
 set :branch, "master"
 set :git_enable_submodules, 1
-
-# runtime dependencies
-depend :remote, :gem, "bundler", "1.8.2"
 
 # tasks
 namespace :deploy do
@@ -50,9 +47,9 @@ namespace :deploy do
   end
 end
 
-task :which_ruby, :roles => :app do
-  run "ruby --version"
-end
+# task :which_ruby, :roles => :app do
+#   run "ruby --version"
+# end
 
 after 'deploy:finalize_update', 'deploy:symlink_shared'
-before 'bundle:install', 'which_ruby'
+# before 'bundle:install', 'which_ruby'

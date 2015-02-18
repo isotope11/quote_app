@@ -1,11 +1,15 @@
 # Bundler bootstrap
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'bundler/capistrano'
-
+# RVM integration
+require "rvm/capistrano"
+set :rvm_ruby_string, '2.1.2'
+set :rvm_type, :user
 # main details
-set :application, "quotes.isotope11.com"
-role :web, "quotes.isotope11.com"
-role :app, "quotes.isotope11.com"
-role :db, "quotes.isotope11.com", :primary => true
+set :application, "104.239.144.69"
+role :web, "104.239.144.69"
+role :app, "104.239.144.69"
+role :db, "104.239.144.69", :primary => true
 
 # server details
 default_run_options[:pty] = true
@@ -21,7 +25,7 @@ set :branch, "master"
 set :git_enable_submodules, 1
 
 # runtime dependencies
-depend :remote, :gem, "bundler", "1.6.2"
+depend :remote, :gem, "bundler", "1.8.2"
 
 # tasks
 namespace :deploy do

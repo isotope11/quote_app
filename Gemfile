@@ -7,7 +7,7 @@ gem 'pg'
 gem 'awesome_nested_set'
 
 gem 'capistrano', '2.15.4'
-gem 'rvm-capistrano', git: 'https://github.com/wayneeseguin/rvm-capistrano.git'
+gem 'rvm-capistrano', git: 'https://github.com/wayneeseguin/rvm-capistrano.git', require: false
 gem 'i18n', '~> 0.6.1'
 
 # Use bootstrap and formtastic all nicely:

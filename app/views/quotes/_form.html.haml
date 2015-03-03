@@ -5,4 +5,4 @@
     = f.input :billable_rate
     = f.input :clone, as: :select, collection: quotes_collection, selected: @clone
   = f.actions do
-    = f.action :submit, as: :button
+    = f.action :submit, html: {class: "btn btn-primary"}

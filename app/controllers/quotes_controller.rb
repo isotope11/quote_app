@@ -11,7 +11,7 @@ class QuotesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "quote.pdf", :print_media_type => true
+        render :pdf => "quote.pdf",  :layout => "pdf.html", :print_media_type => true
       end
     end
   end

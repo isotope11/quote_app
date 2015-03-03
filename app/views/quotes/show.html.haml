@@ -22,27 +22,27 @@
       - if node.type == 'Section'
         %tr.section{ class: "level_#{node.level}" }
           %td.admin_only.arrows
-            = button_to '&uarr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
-            = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
+            = button_to '&uarr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn btn-default'
+            = button_to '&darr;'.html_safe, {controller: 'sections', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn btn-default'
           %td{ class: "level_#{node.level}" }
             = node.description
             = link_to '+s', new_section_path(parent: node.id), class: 'admin_only'
             = link_to '+i', new_item_path(parent: node.id), class: 'admin_only'
           %td= node.min_hours
           %td= node.max_hours
-          %td.admin_only= link_to 'edit', edit_section_path(node), class: 'btn'
-          %td.admin_only= button_to 'remove', section_path(node), method: :delete, class: 'btn'
+          %td.admin_only= link_to 'edit', edit_section_path(node), class: 'btn btn-primary'
+          %td.admin_only= button_to 'remove', section_path(node), method: :delete, class: 'btn btn-danger'
       - else
         %tr.item
           %td.admin_only.arrows
-            = button_to '&uarr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn'
-            = button_to '&darr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn'
+            = button_to '&uarr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'up'}, method: :put, class: 'btn btn-default'
+            = button_to '&darr;'.html_safe, {controller: 'items', action: 'update', id: node.id, move: 'down'}, method: :put, class: 'btn btn-default'
           %td{ class: "level_#{node.level}" }= node.description
           %td= node.min_hours
           %td= node.max_hours
-          %td.admin_only= link_to 'edit', edit_item_path(node), class: 'btn'
+          %td.admin_only= link_to 'edit', edit_item_path(node), class: 'btn btn-primary'
           %td.admin_only          
-            = button_to 'remove', item_path(node), method: :delete, class: 'btn'
+            = button_to 'remove', item_path(node), method: :delete, class: 'btn btn-danger'
             
   %tfoot
     %tr

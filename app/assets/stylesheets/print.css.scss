@@ -22,4 +22,30 @@
 
   .level_3 {
   }
+  body *{
+    font-size: 12px;
+  }
+  table{
+    width: 100% !important;
+    border-collapse: collapse;
+    thead{
+      th{
+        text-align: left;
+        border-bottom: 1px solid #555;
+      }
+    }
+    tr.section{
+      td{
+        border-bottom: 1px solid #bbb;
+      }
+    }
+    td{
+      padding: 5px;
+    }
+    tfoot{
+      td{
+        border-top: 1px solid #555;
+      }
+    }
+  }
 }

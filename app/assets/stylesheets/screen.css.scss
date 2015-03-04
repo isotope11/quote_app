@@ -10,7 +10,7 @@ h2 {
       td {
         font-weight:bold;
         border-top:1px solid #444;
-        
+
       }
     }
   }
@@ -99,4 +99,23 @@ ul.nav {
       display:inline-block;
     }
   }
+}
+.alert-message{
+  padding: 1em;
+  font-weight: 600;
+  border: 1px solid #000;
+  border-radius: 4px;
+  p{
+    margin: 0;
+  }
+}
+.alert-message.info{
+  @extend .bg-info;
+  color: darken($brand-info, 25%);
+  border-color: darken($brand-info, 25%);
+}
+.alert-message.warning{
+  @extend .bg-warning;
+  color: darken($brand-warning, 25%);
+  border-color: darken($brand-warning, 25%);
 }

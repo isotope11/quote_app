@@ -52,4 +52,5 @@ end
 # end
 
 after 'deploy:finalize_update', 'deploy:symlink_shared'
+after 'deploy:restart',         'deploy:cleanup'
 # before 'bundle:install', 'which_ruby'
